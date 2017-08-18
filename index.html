@@ -1,0 +1,269 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>reveal.js – The HTML Presentation Framework</title>
+
+		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+		<meta name="author" content="Hakim El Hattab">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css" id="theme">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<style>
+		.flex{
+		  display: flex;
+		}
+		.flex-child {
+			flex: 1;
+		}
+		</style>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section>
+					<h1>Developer Productivity</h1>
+					<h3>A collection of tricks, tools that help developer improve day-to-day productivity!</h3>					
+				</section>
+
+
+				<section data-background="./images/fail.gif">
+				</section>
+
+				<section data-background="./images/batman_rocket.gif">
+				</section>
+
+				<section>
+					<h2>Mac Tools</h2>
+					<p>
+						Some useful tools we could use daily to help we improve our productivity.
+					</p>
+				</section>
+
+				<section>
+					<h2><a href="http://iterm2.com/">iTerm2</a></h2>
+					<p>Better terminal app</p>
+					<img data-src="./images/iterm2.png">
+				</section>
+
+				<section>
+					<h2><a href="http://ohmyz.sh/">Oh my zsh</a></h2>
+					<p>Better bash</p>
+					<img data-src="./images/zsh.png">
+				</section>
+
+				<section>
+					<h2><a href="https://justgetflux.com/">f.lux</a></h2>
+					<p>f.lux makes the color of your computer’s display adapt to the time of day, warm at night and like sunlight during the day. </p>
+					<img data-src="./images/flux.png" style="max-height:240px;">
+					<img data-src="./images/flux-shot.png" style="max-height:240px;">
+				</section>
+
+				<section>
+					<h2><a href="http://jumpcut.sourceforge.net/">jumptcut</a></h2>
+                    <p>Minimalist Clipboard Buffering for OS X.<br/><em>Esp with your keyboard shortcut</em> </p>
+                    <img data-src="./images/jumpcut.png" style="max-height:200px;">
+                    <img data-src="./images/jumpcut1.jpg" style="max-height:200px;">
+                    <img data-src="./images/jumpcut2.jpg" style="max-height:200px;">
+				</section>
+
+
+                <section>
+                    <h2><a href="http://www.irradiatedsoftware.com/cinch/">cinch</a></h2>
+                    <p>keeps your windows organized</p>
+                    <img data-src="./images/cinch.png" style="max-height:260px;">
+                    <img data-src="./images/cinch1.jpg" style="max-height:260px;">
+                </section>
+
+                <section>
+                    <h2><a href="http://mrrsoftware.com/namechanger/">NameChanger</a></h2>
+                    <p>Swiss Army knife for renaming using pattern,regex, sequence and more.</p>
+                    <img data-src="./images/namechanger.png" style="max-height:260px;">
+                    <img data-src="./images/namechanger1.jpg" style="max-height:260px;">
+                </section>
+
+                <section>
+                    <h2><a href="http://zipzapmac.com/go2shell">Go2Shell</a></h2>
+                    <p>Opens a terminal window to the current directory in Finder</p>
+                    <img data-src="./images/gotoshell.png" style="max-height:260px;">
+                    <img data-src="./images/gotoshell1.png" style="max-height:100px;">
+                </section>
+
+
+                <section>
+                    <h2>Daily Coding</h2>
+                    <p>
+                        <img data-src="./images/commit.png" style="max-height:140px;">
+                        <img data-src="./images/commit1.png" style="max-height:200px;">
+                    </p>
+                </section>
+
+
+
+                <section>
+                    <h2>Git Best Practices</h2>
+                    <ul>
+                        <li class="fragment">Commit Related Changes</li>
+                        <li class="fragment">Commit Often</li>
+                        <li class="fragment">Don’t Commit Half-Done Work</li>
+                        <li class="fragment"><a href="https://chris.beams.io/posts/git-commit/">Write Good Commit Messages</a></li>
+                        <li class="fragment"><a href="https://www.atlassian.com/git/tutorials/using-branches">Use Branches</a></li>
+                        <li class="fragment"><a href="https://code.tutsplus.com/tutorials/quick-tip-leveraging-the-power-of-git-stash--cms-22988/">Stash local change temp</a></li>
+                        <li class="fragment"><a href="https://www.atlassian.com/git/tutorials/gitignore">.gitignore</a></li>
+                    </ul>
+                </section>
+
+
+                <section>
+                    <br/>
+                    <h2><a href="https://git-scm.com/book/en/v2/Distributed-Git-Contributing-to-a-Project">Git Commit Message</a></h2>
+
+                    <section data-markdown>
+                    ```
+                    [Closes #123][#124][#125] Torpedoes now sufficiently powered
+                    ```
+                    ```
+                    [<optional state> #issueid] (50 chars or less) summary of changes
+
+                    More detailed explanatory text, if necessary. Wrap it to about 72
+                    characters or so.
+
+                    Further paragraphs come after blank lines.
+
+                    - Bullet points are okay, too
+
+                    - Typically a hyphen or asterisk is used for the bullet, preceded by a
+                    single space, with blank lines in between, but conventions vary here```
+                    </section>
+				</section>
+
+                <section>
+                    <h2><a href="https://blog.jetbrains.com/webstorm/2015/06/10-webstorm-shortcuts-you-need-to-know/">Webstorm IDE</a></h2>
+                    <ul>
+                        <li class="fragment">Use keyboard shortcut</li>
+                        <li class="fragment">live template</li>
+                        <li class="fragment">rename, code format, quick jump</li>
+                    </ul>
+                </section>
+
+				<section>
+					<h2>RSS Reader</h2>
+                    <p>Keep update to latest tech.</p>
+                    <p><a href="https://digg.com/reader">Digg Reader</a>, <a href="https://feedly.com/">Feedly</a></p>
+                    <ul>
+                        <li class="fragment"><a href="https://wanqu.co/">湾区日报</a></li>
+                        <li class="fragment"><a href="http://gold.xitu.io/">稀土掘金</a></li>
+                        <li class="fragment"><a href="https://www.v2ex.com/">V2EX</a></li>
+                        <li class="fragment"><a href="https://medium.com/">Medium</a></li>
+                        <li class="fragment"><a href="https://news.ycombinator.com/">Hacker News</a></li>
+                        <li class="fragment"><a href="http://thenextweb.com/">The Next Web</a></li>
+                        <li class="fragment"><a href="https://www.designernews.co/">Designer News</a></li>
+                        <li class="fragment"><a href="https://www.smashingmagazine.com/">Smash Magazine</a></li>
+                    </ul>
+				</section>
+
+				<section>
+					<h2>Markdown</h2>
+					<p>
+						Better way to write down with focus solely on content.
+					</p>
+                    <p>
+                        <img data-src="./images/markdown1.png" style="max-height:280px;">
+                        <img data-src="./images/markdown2.png" style="max-height:280px;">
+                    </p>
+				</section>
+
+                <section>
+                    <h2>Blog</h2>
+                    <p class="fragment">Not recommended:</p>
+                    <ul>
+                        <li class="fragment">Wordpress</li>
+                        <li class="fragment">新浪博客</li>
+                    </ul>
+                    <p class="fragment" >Recommended:</p>
+                    <ul>
+                        <li class="fragment"><a href="https://jekyllrb.com/">Jekyll</a></li>
+                        <li class="fragment"><a href="https://hexo.io/">Hexo</a></li>
+                        <li class="fragment"><a href="http://www.jianshu.com/">简书</a></li>
+                        <li class="fragment"><a href="http://www.jianshu.com/">自己撸</a></li>
+                    </ul>
+                </section>
+
+                <section style="text-align: left;">
+                    <h1>其他</h1>
+                    <p>
+                        - 多沟通，别死钻牛角尖 <br>
+                        - 番茄工作法 <br>
+                        - 减少分心 <br>
+                        - 多分享 <br>
+                        - 多用快捷键 <br>
+                        - 不断学习 <br>
+                    </p>
+                </section>
+
+
+                <section data-background="./images/end.gif">
+                    <h1 class="1fragment">THE END</h1>
+                </section>
+
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				transition: 'convex', // none/fade/slide/convex/concave/zoom
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
