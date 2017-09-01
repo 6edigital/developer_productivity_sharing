@@ -1,0 +1,379 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>Sensor Sharing</title>
+
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/black.css">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="./css/zenburn.css">
+
+    <style>
+        .reveal section img {
+            /*border: 0;*/
+            border: 4px solid #555;
+        }
+
+        .photo {
+            position: relative;
+            width: 250px;
+            height: 250px;
+            margin: auto !important;
+            left: 0;
+            right: 0;
+        }
+
+        .photo img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+<div class="reveal">
+    <div class="slides">
+        <!--标题-->
+        <section>
+            <h1>H5常用套路</h1>
+            <h3>传感器篇</h3>
+        </section>
+        <section>
+            <section data-background="./img/gyro_bg.jpg">
+                <h2>陀螺仪、重力感应</h2>
+                <p>Gyroscope</p>
+                <div class="photo">
+                    <img data-src="./img/gyroscope.gif" alt="陀螺仪">
+                    <img class="fragment" data-src="./img/gyroscope.jpg" alt="陀螺仪">
+                </div>
+            </section>
+            <section>
+                <p>兼容性</p>
+                <img width="1256" height="453" data-src="./img/gyro_support.png" alt="screen-orientation">
+            </section>
+        </section>
+        <section>
+            <section>
+                <h3><a>设备方向事件</a></h3>
+                <p>DeviceOrientation Event</p>
+                <pre><code class="hljs" data-trim contenteditable>
+                            window.addEventListener('deviceorientation', function(event) {
+                                var alpha = event.alpha;
+                                var beta = event.beta;
+                                var gamma = event.gamma;
+                            }, false);
+                        </code></pre>
+            </section>
+            <section>
+                <h3>Alpha, Beta 和 Gamma 角</h3>
+
+                <img class="fragment" width="315" height="222" data-src="./img/DeviceOrientation-3.png"
+                     alt="DeviceOrientation1">
+                <img class="fragment" width="751" height="208" data-src="./img/DeviceOrientation-4.png"
+                     alt="DeviceOrientation2">
+            </section>
+            <section>
+                <h2>Demo</h2>
+                <a href="https://ssl.6edigital.cn/sensor-demo/html/device-orientation1.html"><img
+                        width="250" height="250" src="./img/device-orientation1.png" alt=""></a>
+                <br>
+                <a class="fragment" href="https://github.com/shrekshrek/orienter">orienter.js</a>
+            </section>
+            <section>
+                <p>适用场景</p>
+                <p><small>全景图/AR转换角度、转动手机制造视差效果、体感游戏</small></p>
+            </section>
+            <section>
+                <h2>Example</h2>
+                <img src="./img/example1_2.jpg" alt="">
+            </section>
+            <section>
+                <h2>Example</h2>
+                <img src="./img/example1_3.jpg" alt="">
+            </section>
+            <section>
+                <p>物理引擎</p>
+                <ul>
+                    <li><a href="https://github.com/liabru/matter-js">matter-js</a></li>
+                    <li><a href="https://github.com/subprotocol/verlet-js">verlet-js</a></li>
+                </ul>
+            </section>
+            <section>
+                <p>3D引擎</p>
+                <ul>
+                    <li><a href="https://github.com/shrekshrek">css3d-js</a></li>
+                    <li><a href="http://threejs.org/">threejs</a></li>
+                </ul>
+            </section>
+        </section>
+        <section>
+            <section>
+                <h3><a>设备运动事件</a></h3>
+                <p>DeviceMotion Event</p>
+                <pre><code class="hljs" data-trim contenteditable>
+						window.addEventListener('devicemotion', function(event) {
+							// 加速度( 排除重力 )
+							var x = event.acceleration.x;
+							var y = event.acceleration.y;
+							var z = event.acceleration.z;
+							// 旋转 ( °/sec )
+							var ralpha = event.rotationRate.alpha;
+							var rbeta = event.rotationRate.beta;
+							var rgamma = event.rotationRate.gamma;
+
+							var interval = event.interval;
+						}, false);
+					</code></pre>
+            </section>
+            <section>
+                <h2>Example</h2>
+                <img src="./img/example1_1.jpg" alt="">
+            </section>
+            <section>
+                <p>适用场景</p>
+                <p><small>体感游戏、摇一摇</small></p>
+            </section>
+        </section>
+        <section>
+            <section>
+                <h3><a>屏幕朝向</a></h3>
+                <p>Window.orientation</p>
+                <pre><code class="hljs" data-trim contenteditable>
+							window.addEventListener("orientationchange",function(){
+								// window.orientation
+								// 0    （默认竖屏）
+								// －90 （向右旋转）
+								// 90   （向左旋转）
+								console.log(window.orientation);
+							});
+						</code></pre>
+            </section>
+            <section>
+                <p>Window.orientation</p>
+                <img width="1058" height="452" data-src="./img/window-orientation.png" alt="window-orientation">
+            </section>
+            <section>
+                <p>Screen.orientation</p>
+                <pre><code class="hljs" data-trim contenteditable>
+							var orientation = screen.orientation || screen.mozOrientation || screen.msOrientation;
+							if (orientation.type === "landscape-primary") {
+							  console.log("That looks good.");
+							} else if (orientation.type === "landscape-secondary") {
+							  console.log("Mmmh... the screen is upside down!");
+							} else if (orientation.type === "portrait-secondary") {
+							  console.log("Mmmh... you should rotate your device to landscape");
+							} else if ( orientation.type === "portrait-primary") {
+							  console.log("Mmmh... you should rotate your device to landscape");
+							}
+                </code></pre>
+            </section>
+            <section>
+                <p>Screen.orientation </p>
+                <img width="1061" height="595" data-src="./img/screen-orientation.png" alt="screen-orientation">
+            </section>
+            <section>
+                <p>兼容性</p>
+                <img width="1258" height="483" data-src="./img/screen-orientation-support.png" alt="screen-orientation">
+            </section>
+            <section>
+                <h2>Example</h2>
+                <a href=""><img src="./img/example2_1.gif" alt=""></a>
+            </section>
+            <section>
+                <h2>Example</h2>
+                <img src="./img/example2_1a.gif" alt="">
+            </section>
+            <section>
+                <p>适用场景</p>
+                <p><small>屏幕翻转监测</small></p>
+            </section>
+        </section>
+        <section>
+            <section>
+                <h2>地理位置</h2>
+                <p>Geolocation API</p>
+                <ul>
+                    <li>IP 地址</li>
+                    <li>GPS</li>
+                    <li>Wi-Fi</li>
+                    <li>手机信号</li>
+                </ul>
+            </section>
+            <section>
+                <img width="1261" height="431" data-src="./img/geolocation-support.png" alt="geolocation-support">
+            </section>
+            <section>
+                <pre><code class="hljs" data-trim contenteditable>
+                                navigator.geolocation.getCurrentPosition(function(){
+                                    // 经度 ( degree )
+                                    latitude = position.coords.latitude;
+                                    // 纬度 ( degree )
+                                    longitude = position.coords.longitude;
+                                    // 高度 ( m )
+                                    altitude = position.coords.altitude;
+                                    // 精确度 ( m )
+                                    accuracy = position.coords.accuracy;
+                                    // 高度精确度 ( m )
+                                    altitudeAccuracy = position.coords.altitudeAccuracy;
+                                    // 移动方向 ( degree/s )
+                                    heading = position.coords.heading;
+                                    // 移动速度 ( m/s )
+                                    speed = position.coords.speed;
+                                    // 时间戳 ( ms )
+                                    timestamp = position.timestamp;
+                                },onError,options);
+
+                                // 基于持续更新的位置信息实现一些功能…
+                                var watchId = navigator.geolocation.watchPosition(updateLocation, handleLocationError);
+                                // 停止接收位置更新消息
+                                navigator.geolocation.clearWatch(watchId);
+                            </code></pre>
+            </section>
+            <section>
+                <h2>Web常用地图SDK</h2>
+                <ul>
+                    <li><a href="https://developers.google.com/maps/documentation/javascript/tutorial?hl=zh-tw">谷歌地图
+                        JavaScript API</a></li>
+                    <li><a href="http://lbsyun.baidu.com/index.php?title=jspopular">百度地图 JavaScript API</a></li>
+                    <li><a href="http://lbs.amap.com/api/javascript-api/summary/">高德地图 JavaScript API</a></li>
+                </ul>
+            </section>
+            <section>
+                <h2>Demo</h2>
+                <a href="https://ssl.6edigital.cn/sensor-demo/html/Geolocation-demo.html"><img
+                        src="./img/Geolocation-demo-qr.png" alt=""></a>
+            </section>
+            <section>
+                <h2>Example</h2>
+                <a href=""><img src="./img/example2_1.jpg" alt=""></a>
+            </section>
+            <section>
+                <h3><a>要点</a></h3>
+                <ul>
+                    <li>拒绝定位只能通过系统设置重置</li>
+                    <li>navigator.geolocation 经纬度转换</li>
+                    <li>Https 协议</li>
+                    <li>天气api</li>
+                </ul>
+            </section>
+            <section>
+                <p>适用场景</p>
+                <p><small>提供周边生活服务、与运动结合、上班打卡功能、外勤人员的工作监控、类似QQ的AR红包和pokemon go玩法、展示附近的优惠和广告</small></p>
+            </section>
+        </section>
+        <section>
+            <section>
+                <h2>WebRTC</h2>
+                <p>webRTC是H5的一个新特性，它可以在web上访问摄像头和麦克风，进行视频和音频的实时通讯。</p>
+            </section>
+            <section>
+                <img width="816" height="268" data-src="./img/isWebRTCready.png" alt="isWebRTCready">
+            </section>
+            <section>
+                <img width="1200" height="508" data-src="./img/webrtc-ios11.jpg" alt="webrtc-ios11">
+            </section>
+            <section>
+                <img width="1259" height="457" data-src="./img/webRTC-support.png" alt="webRTC-support">
+            </section>
+            <section>
+                <h2>Demo</h2>
+                <a href="https://ssl.6edigital.cn/sensor-demo/html/webRTC.html"><img
+                        src="./img/example3_1a.jpg" alt=""></a>
+            </section>
+            <section>
+                <h2>Example</h2>
+                <a href="https://ssl.6edigital.cn/sensor-demo/html/webRTC-demo.html"><img
+                        src="./img/example3_1a.jpg" alt=""></a>
+            </section>
+            <section>
+                <p>适用场景</p>
+                <p><small>UGC动图、视频会议、视频聊天、在线教育、在线问诊等视频/音频通讯的场景</small></p>
+            </section>
+        </section>
+        <section>
+            <section>
+                <h2>人脸识别</h2>
+                <p>Face Recognition</p>
+            </section>
+            <section>
+                <h2>常用人脸识别Javascript库</h2>
+                <ul>
+                    <li><a href="https://github.com/auduno/clmtrackr">clmtrackr.js</a></li>
+                    <li><a href="https://trackingjs.com/">tracking.js</a></li>
+                </ul>
+                <img width="1261" height="431" data-src="./img/geolocation-support.png" alt="geolocation-support">
+            </section>
+            <section>
+                <h2>人脸识别云平台</h2>
+                <ul>
+                    <li><a href="https://cloud.google.com/vision/">Google Cloud Vision API</a></li>
+                    <li><a href="https://www.faceplusplus.com.cn/">Face++</a></li>
+                    <li><a href="http://open.youtu.qq.com/">腾讯优图</a></li>
+                </ul>
+                <img width="600" data-src="./img/Face++ API.png" alt="geolocation-support">
+            </section>
+            <section>
+                <h2>Demo</h2>
+                <a href="https://ssl.6edigital.cn/sensor-demo/html/FaceDetect-Demo.html"><img
+                        width="250" height="250" src="./img/device-orientation1.png" alt=""></a>
+                <br>
+            </section>
+            <section>
+                <h2>Example</h2>
+                <img src="./img/example3_2a.jpg" alt="">
+            </section>
+            <section>
+                <h2>Example</h2>
+                <img src="./img/example3_1.jpg" alt="">
+            </section>
+            <section>
+                <p>适用场景</p>
+                <p><small>体感游戏、将用户样貌与节日/游戏/电影等主题元素相结合进行宣传的场景、用户样貌与明星脸相似度测试、猜用户年龄、猜情绪、模拟化妆</small></p>
+            </section>
+        </section>
+        <section>
+            <section>
+                <h2>Html5案例赏析网站</h2>
+                <ul>
+                    <li><a href="http://www.thefwa.com/">FWA</a></li>
+                    <li><a href="http://bm.straightline.jp/">Straightline</a></li>
+                    <li><a href="http://www.digitaling.com/">数英网</a></li>
+                    <li><a href="http://www.iguoguo.net/">爱果果</a></li>
+                </ul>
+            </section>
+            <section>
+                <h2>谢谢</h2>
+                <p>END</p>
+            </section>
+        </section>
+    </div>
+</div>
+
+<script src="js/libs/head.min.js"></script>
+<script src="js/reveal.js"></script>
+
+<script>
+    // More info about config & dependencies:
+    // - https://github.com/hakimel/reveal.js#configuration
+    // - https://github.com/hakimel/reveal.js#dependencies
+    Reveal.initialize({
+        dependencies: [
+            {src: './js/plugin/markdown/marked.js'},
+            {src: './js/plugin/markdown/markdown.js'},
+            {src: './js/plugin/notes/notes.js', async: true},
+            {
+                src: './js/plugin/highlight/highlight.js', async: true, callback: function () {
+                hljs.initHighlightingOnLoad();
+            }
+            }
+        ]
+    });
+</script>
+</body>
+</html>
